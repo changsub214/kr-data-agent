@@ -3,7 +3,7 @@
 이 프로젝트는 Google ADK(Agent Development Kit)를 사용하여 구축된 데이터 관리, 분석, 시각화 그리고 ML작업이 가능한 에이전트 샘플입니다. 해당 에이전트는 자연어를 통해 BigQuery 내 메타데이터, 데이터 생성과 분석을 진행할 수 있을 뿐만 아니라 모델 생성 및 훈련까지 경험할 수 있습니다. 또한 시각화를 통해 시각화된 결과를 볼 수 있습니다.
 
 ## 📃 구조 (Architecture)
-
+```bash
 KR_BQ_AGENT/
 ├── sub_agents/
 │   ├── bqml_agent/
@@ -25,25 +25,26 @@ KR_BQ_AGENT/
 │   │   ├── prompts.py
 │   │   └── tools.py
 │   ├── __init__.py
-│   └── .env
+│   └── .env.example
 ├── __init__.py
-├── .env
+├── .env.example
 ├── agent.py
 ├── prompts.py
 └── pyproject.toml
+```
 
 ## 🚀 기능 (Capabilities)
 
 이 에이전트는 다음과 같은 주요 기능을 수행할 수 있습니다.
 
 * **자연어 쿼리**: 한국어 질문을 이해하여 BigQuery에서 데이터를 조회하고 분석합니다.
-* **다양한 차트 생성**: 분석된 데이터를 기반으로 아래와 같은 차트를 동적으로 생성합니다.
+* **메타데이터 및 데이터 관리**: 
+* **모델 생성 및 훈련**: 
+* **시각화 생성**: 분석된 데이터를 기반으로 아래와 같은 차트를 동적으로 생성합니다.
     * 막대 차트 (Bar Chart)
     * 선 차트 (Line Chart)
     * 산점도 (Scatter Plot)
     * 히스토그램 (Histogram)
-* **이미지 파일 저장**: 생성된 모든 시각화 결과는 서버의 `img/` 디렉터리에 PNG 파일로 저장됩니다.
-* **완벽한 한글 지원**: 차트의 제목, 축 라벨 등 모든 한글이 깨짐 없이 정확하게 표시됩니다.
 
 ## ✅ 사전 준비 (Prerequisites)
 
