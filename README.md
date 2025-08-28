@@ -37,9 +37,9 @@ KR_BQ_AGENT/
 
 이 에이전트는 다음과 같은 주요 기능을 수행할 수 있습니다.
 
-* **자연어 쿼리**: 한국어 질문을 이해하여 BigQuery에서 데이터를 조회하고 분석합니다.
-* **메타데이터 및 데이터 관리**: 
-* **모델 생성 및 훈련**: 
+* **자연어 쿼리**: 질문을 이해하여 BigQuery에서 데이터를 조회하고 분석합니다.
+* **메타데이터 및 데이터 관리**: 스키마와 데이터를 이해하여 적절한 메타데이터 생성뿐만 아니라 데이터 관리가 가능합니다.
+* **모델 생성 및 훈련**: BigQueryML에서 지원하는 머신러닝 모델을 생성하고 데이터 훈련이 가능합니다. 
 * **시각화 생성**: 분석된 데이터를 기반으로 아래와 같은 차트를 동적으로 생성합니다.
     * 막대 차트 (Bar Chart)
     * 선 차트 (Line Chart)
@@ -73,7 +73,6 @@ KR_BQ_AGENT/
     ```bash
     python -m venv .venv
     source .venv/bin/activate
-    # For Windows: .\.venv\Scripts\activate
     ```
 
 3.  **의존성 설치 (Install Dependencies)**
@@ -83,25 +82,40 @@ KR_BQ_AGENT/
     ```
 
 4.  **환경 변수 설정 (Configure Environment Variables)**
-    프로젝트 루트에 `.env` 파일을 생성하고 아래 내용을 채워넣습니다.
+    프로젝트 루트와 sub_agents/에 `.env.example` 파일을 `.env`로 수정하고 양식에 맞춰 값을 채워넣습니다.
     ```env
-    # .env
-    MODEL="gemini-1.5-pro-preview-0409"
-    GCP_PROJECT_ID="your-gcp-project-id"
+    GOOGLE_GENAI_USE_VERTEXAI=TRUE
+    #GOOGLE_API_KEY="" #If you want to use API, you should set this value and FALSE on upper value and then you can use it.
+    GOOGLE_CLOUD_PROJECT="YOUR_PROJECT_ID"
+    GOOGLE_CLOUD_LOCATION="YOUR_REGION"
+    MODEL = "gemini-2.5-pro" 
     ```
 
 ## 🏃 실행 방법 (How to Run)
 
 아래 명령어를 사용하여 로컬 ADK 웹 서버를 시작합니다.
+```bash
+adk web
+```
 서버가 시작되면 http://127.0.0.1:8000 주소로 접속하여 웹 UI에서 에이전트와 상호작용할 수 있습니다. 생성된 차트 이미지는 kr_bq_agent/sub_agents/visualization_agent/img/ 디렉터리에 저장됩니다.
+만일, CLI 환경에서 진행할 경우 다음과 같이 진행합니다.
+```bash
+adk run kr_bq_agent
+```
 
 🗣️ 샘플 프롬프트 (Sample Prompts)
 에이전트에게 다음과 같은 질문을 할 수 있습니다.
 
-bank 데이터세트 내 customer_id 테이블 참고해서 성별별 가입자수를 막대 차트로 나타내줘
+은행 관련 고객 정보가 있는 테이블에서 성별별 가입자수를 나타내줘
 
-지난 한 해 동안의 월별 매출 추이를 선 차트로 보여줘
+지난 한 해 동안의 월별 매출 추이를 보여줘
 
-광고비와 매출 사이의 상관관계를 산점도로 시각화해줘
+광고비와 매출 사이의 상관관계를 분석하고 산점도로 시각화해줘
 
-사용자 연령 분포를 히스토그램으로 그려줘
+인구관련 데이터세트에서 인사이트를 얻기 위한 적절한 질문 3개 생성해줘
+
+코흐트 분석해줘
+
+인구 변화 예측을 하고 싶은데 적절한 모델 생성하고 평가해줘
+
+고객 테이블 메타데이터 생성해줘
