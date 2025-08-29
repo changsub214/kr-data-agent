@@ -70,7 +70,7 @@ KR_BQ_AGENT/
 
 1.  **리포지토리 복제 (Clone Repository)**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/changsub214/kr-data-agent.git
     cd kr-data-agent
     ```
 
@@ -81,19 +81,21 @@ KR_BQ_AGENT/
     ```
 
 3.  **의존성 설치 (Install Dependencies)**
-    프로젝트 루트의 `pyproject.toml` 파일을 사용하여 모든 필수 라이브러리를 설치합니다.
+    kr_bq_agent 폴더로 이동 후 `pyproject.toml` 파일을 사용하여 모든 필수 라이브러리를 설치합니다. 이후 상위 디렉터리로 이동합니다.
     ```bash
+    cd kr_bq_agent
     pip install .
+    cd ..
     ```
 
 4.  **환경 변수 설정 (Configure Environment Variables)**
-    프로젝트 루트와 sub_agents/에 `.env.example` 파일을 `.env`로 수정하고 양식에 맞춰 값을 채워넣습니다.
+    kr_bq_agent 내 루트와 sub_agents/에 `.env.example` 파일을 `.env`로 수정하고 양식에 맞춰 값을 채워넣습니다.
     ```env
     GOOGLE_GENAI_USE_VERTEXAI=TRUE
     #GOOGLE_API_KEY="" #If you want to use API, you should set this value and FALSE on upper value and then you can use it.
     GOOGLE_CLOUD_PROJECT="YOUR_PROJECT_ID"
     GOOGLE_CLOUD_LOCATION="YOUR_REGION"
-    MODEL = "gemini-2.5-pro" #Your model
+    MODEL = "YOUR MODEL"
     ```
 
 ## 🏃 실행 방법 (How to Run)
