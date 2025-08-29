@@ -1,0 +1,14 @@
+[project]
+name = "kr-data-agent"
+version = "0.1.0"
+requires-python = ">= 3.12"
+authors = [{name = "Changseop Shin", email = "changseop@google.com"}]
+description = "This is for customers to enable making data agent and get potential to use BigQuery on GCP more easy."
+
+dependencies = [
+    "google-adk==1.12.0",
+    "python-dotenv",
+    "altair",
+    "vl-convert-python",
+    "pandas",
+]
