@@ -52,17 +52,18 @@ KR_BQ_AGENT/
 
 1.  **Google Cloud Project**: 결제가 활성화된 GCP 프로젝트.
 2.  **gcloud CLI**: Google Cloud CLI가 설치 및 인증되어 있어야 합니다.
+    * <a href="https://cloud.google.com/sdk/docs/install?hl=ko" target="_blank">설치링크</a>
     * `gcloud auth login`
     * `gcloud auth application-default login`
     * `gcloud auth application-default set-quota-project <YOUR_PROJECT_ID>`
-3.  **APIs Enabled**: 프로젝트에서 다음 API가 활성화되어 있어야 합니다. 구글 클라우드 콘솔에서 다음 API 검색하여 활성화 확인합니다.
+4.  **APIs Enabled**: 프로젝트에서 다음 API가 활성화되어 있어야 합니다. 구글 클라우드 콘솔에서 다음 API 검색하여 활성화 확인합니다.
     * AI Platform API (`aiplatform.googleapis.com`)
     * BigQuery API (`bigquery.googleapis.com`)
-4.  **Python version**: Python 3.12+ 이상이어야 합니다.
-5.  **Git**: git이 설치되어 있어야 합니다.
+5.  **Python version**: Python 3.12+ 이상이어야 합니다.
+6.  **Git**: git이 설치되어 있어야 합니다.
     * <a href="https://git-scm.com/" target="_blank">설치링크</a>
     * <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">가이드라인</a>
-6.  **System Fonts**: 에이전트가 실행되는 환경에 **나눔고딕 폰트**가 설치되어 있어야 합니다.
+7.  **System Fonts**: 에이전트가 실행되는 환경에 **나눔고딕 폰트**가 설치되어 있어야 합니다.
     * Ubuntu/Debian: `sudo apt-get update && sudo apt-get install -y fonts-nanum`
    
 
@@ -76,7 +77,7 @@ KR_BQ_AGENT/
 
 2.  **가상 환경 생성 및 활성화 (Create and Activate Virtual Environment)**
     ```bash
-    python -m venv .venv
+    python3 -m venv .venv
     source .venv/bin/activate
     ```
 
