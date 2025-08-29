@@ -55,11 +55,16 @@ KR_BQ_AGENT/
     * `gcloud auth login`
     * `gcloud auth application-default login`
     * `gcloud auth application-default set-quota-project <YOUR_PROJECT_ID>`
-3.  **APIs Enabled**: 프로젝트에서 다음 API가 활성화되어 있어야 합니다.
+3.  **APIs Enabled**: 프로젝트에서 다음 API가 활성화되어 있어야 합니다. 구글 클라우드 콘솔에서 다음 API 검색하여 활성화 확인합니다.
     * AI Platform API (`aiplatform.googleapis.com`)
     * BigQuery API (`bigquery.googleapis.com`)
-4.  **System Fonts**: 에이전트가 실행되는 서버에 **한글 폰트**가 설치되어 있어야 합니다.
-    * Ubuntu/Debian 기준: `sudo apt-get update && sudo apt-get install -y fonts-nanum`
+4.  **Python version**: Python 3.12+ 이상이어야 합니다.
+5.  **Git**: git이 설치되어 있어야 합니다.
+    * <a href="https://git-scm.com/" target="_blank">설치링크</a>
+    * <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">가이드라인</a>
+6.  **System Fonts**: 에이전트가 실행되는 환경에 **나눔고딕 폰트**가 설치되어 있어야 합니다.
+    * Ubuntu/Debian: `sudo apt-get update && sudo apt-get install -y fonts-nanum`
+   
 
 ## ⚙️ 설치 및 설정 (Setup)
 
@@ -88,22 +93,22 @@ KR_BQ_AGENT/
     #GOOGLE_API_KEY="" #If you want to use API, you should set this value and FALSE on upper value and then you can use it.
     GOOGLE_CLOUD_PROJECT="YOUR_PROJECT_ID"
     GOOGLE_CLOUD_LOCATION="YOUR_REGION"
-    MODEL = "gemini-2.5-pro" 
+    MODEL = "gemini-2.5-pro" #Your model
     ```
 
 ## 🏃 실행 방법 (How to Run)
 
-아래 명령어를 사용하여 로컬 ADK 웹 서버를 시작합니다.
+아래 명령어를 사용하여 로컬 ADK 웹 환경을 시작합니다.
 ```bash
 adk web
 ```
-서버가 시작되면 http://127.0.0.1:8000 주소로 접속하여 웹 UI에서 에이전트와 상호작용할 수 있습니다. 생성된 차트 이미지는 kr_bq_agent/sub_agents/visualization_agent/img/ 디렉터리에 저장됩니다.
+시작되면 http://127.0.0.1:8000 주소로 접속하여 웹 UI에서 에이전트와 상호작용할 수 있습니다. 생성된 차트 이미지는 kr_bq_agent/sub_agents/visualization_agent/img/ 디렉터리에 저장됩니다.
 만일, CLI 환경에서 진행할 경우 다음과 같이 진행합니다.
 ```bash
 adk run kr_bq_agent
 ```
 
-🗣️ 샘플 프롬프트 (Sample Prompts)
+## 🗣️ 샘플 프롬프트 (Sample Prompts)
 에이전트에게 다음과 같은 질문을 할 수 있습니다.
 
 은행 관련 고객 정보가 있는 테이블에서 성별별 가입자수를 나타내줘
