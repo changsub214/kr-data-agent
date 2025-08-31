@@ -57,15 +57,15 @@ KR_BQ_AGENT/
     * `gcloud auth application-default login`
     * `gcloud auth application-default set-quota-project <YOUR_PROJECT_ID>`
 4.  **APIs Enabled**: 프로젝트에서 다음 API가 활성화되어 있어야 합니다. 구글 클라우드 콘솔에서 다음 API 검색하여 활성화 확인합니다.
-    * AI Platform API (`aiplatform.googleapis.com`)
-    * BigQuery API (`bigquery.googleapis.com`)
+    * Vertex AI API
+    * BigQuery API
 5.  **Python version**: Python 3.12+ 이상이어야 합니다.
 6.  **Git**: git이 설치되어 있어야 합니다.
     * <a href="https://git-scm.com/" target="_blank">설치링크</a>
     * <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">가이드라인</a>
 7.  **System Fonts**: 에이전트가 실행되는 환경에 **나눔고딕 폰트**가 설치되어 있어야 합니다.
     * Ubuntu/Debian: `sudo apt-get update && sudo apt-get install -y fonts-nanum`
-   
+8.  **IAM**: 연결된 계정이 최소한 BigQuery Editor, Vertex AI User 권한 이상을 가져야 합니다.    
 
 ## ⚙️ 설치 및 설정 (Setup)
 
