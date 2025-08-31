@@ -63,9 +63,10 @@ KR_BQ_AGENT/
 6.  **Git**: git이 설치되어 있어야 합니다.
     * <a href="https://git-scm.com/" target="_blank">설치링크</a>
     * <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">가이드라인</a>
-7.  **System Fonts**: 에이전트가 실행되는 환경에 **나눔고딕 폰트**가 설치되어 있어야 합니다.
+7.  **IAM**: 연결된 계정이 최소한 BigQuery Editor, Vertex AI User 권한 이상을 가져야 합니다.
+8.  **[Optional]System Fonts**: 에이전트가 실행되는 환경에 **나눔고딕 폰트**가 설치되어 있어야 합니다.
     * Ubuntu/Debian: `sudo apt-get update && sudo apt-get install -y fonts-nanum`
-8.  **IAM**: 연결된 계정이 최소한 BigQuery Editor, Vertex AI User 권한 이상을 가져야 합니다.    
+    
 
 ## ⚙️ 설치 및 설정 (Setup)
 
@@ -101,7 +102,7 @@ KR_BQ_AGENT/
 
 ## 🏃 실행 방법 (How to Run)
 
-아래 명령어를 사용하여 로컬 ADK 웹 환경을 시작합니다.
+아래 명령어를 사용하여 로컬 ADK 웹 환경을 시작합니다. 이때 위치는, kr-data-agent/ 에 위치해야 합니다.
 ```bash
 adk web
 ```
