@@ -99,6 +99,16 @@ KR_BQ_AGENT/
     GOOGLE_CLOUD_LOCATION="YOUR_REGION"
     MODEL = "YOUR MODEL"
     ```
+    단, sub_agents/ 내에 있는 환경 변수 설정 파일은 다음의 변수에 맞춰서 설정해야 합니다.
+    ```env
+    GOOGLE_GENAI_USE_VERTEXAI=TRUE
+    #GOOGLE_API_KEY="" #If you want to use API, you can use it.
+    GOOGLE_CLOUD_PROJECT="YOUR PROJECT NAME"
+    GOOGLE_CLOUD_BUCKET="YOUR BUCKET"
+    GOOGLE_CLOUD_LOCATION="YOUR REGION"
+    MODEL = "YOUR MODEL"
+    ```
+
 
 ## 🏃 실행 방법 (How to Run)
 
