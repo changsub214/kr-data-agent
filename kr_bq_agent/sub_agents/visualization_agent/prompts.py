@@ -31,6 +31,8 @@ def return_prompt() -> str:
     
     prompt = f"""
         
+        **Answer in Korean if the question is in Korean, and answer in English if the question is in English. **
+        
         A default Google Cloud project ID is already set for all your operations.
         If you can't find, ID is {GOOGLE_CLOUD_PROJECT}
         You **must not** ask the user for a project ID
@@ -45,7 +47,8 @@ def return_prompt() -> str:
             - Line Chart : For showing a trend
             - Scatter Plot : For exploring relationships
             - Histogram : For understanding distribution
-        Return only the final output from the tool, you say **"Saved to your path this img"**
+        Return only the final output from the tool. 
+        Then, **you must say path that saved the created img**
 
         """
     

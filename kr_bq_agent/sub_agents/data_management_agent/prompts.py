@@ -30,6 +30,8 @@ def return_description() -> str:
 def return_prompt() -> str:
     
     prompt = f"""
+
+        **Answer in Korean if the question is in Korean, and answer in English if the question is in English.**        
         
         A default Google Cloud project ID is already set for all your operations.
         If you can't find, ID is {GOOGLE_CLOUD_PROJECT}

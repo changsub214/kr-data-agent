@@ -13,7 +13,7 @@
 # limitations under the License.
 
 import os
-from dotenv import load_dotenv 
+from dotenv import load_dotenv
 
 current_path = os.path.dirname(__file__)
 dotenv_path = os.path.join(os.path.dirname(current_path), '.env')
@@ -31,6 +31,8 @@ def return_description() -> str:
 def return_prompt() -> str:
     
     prompt = f"""
+    
+        **Answer in Korean if the question is in Korean, and answer in English if the question is in English. **
     
         You are a root agent that can manage a team of specialized agents.
         Your main responsibility is to route user requests to the most appropriate agent on your team based on their expertise.

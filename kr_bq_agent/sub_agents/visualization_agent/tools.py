@@ -19,9 +19,17 @@ import vl_convert as vlc
 import io, os
 import traceback
 
+from dotenv import load_dotenv 
 from typing import List, Optional
 from datetime import datetime
+from google.cloud import storage
 
+
+current_path = os.path.dirname(__file__)
+dotenv_path = os.path.join(os.path.dirname(current_path), '.env')
+load_dotenv(dotenv_path)
+
+GOOGLE_CLOUD_BUCKET = os.getenv("GOOGLE_CLOUD_BUCKET")
 
 def configure_korean_font(chart):
     """
@@ -38,7 +46,37 @@ def configure_korean_font(chart):
         titleFont='NanumGothic'
     )
 
+#gcs
+def save_chart_to_gcs(chart, title):
+    """
+    Saves a chart object to a bucket and returns the path.
+    You want to know path, refer to return value. 
+    """
+    
+    storage_client = storage.Client()
 
+    try:
+        bucket = storage_client.get_bucket(GOOGLE_CLOUD_BUCKET)
+    except Exception:
+        print(f"Bucket: {GOOGLE_CLOUD_BUCKET} not found. now try making bucket..")
+        bucket = storage_client.create_bucket(GOOGLE_CLOUD_BUCKET)
+    
+
+    timestamp = datetime.now().strftime("%Y%m%d")
+    title = "".join(c for c in title if c.isalnum() or c in (' ', '_')).rstrip()
+    filename = f"{timestamp}_{title}.png"
+    chart_json = chart.to_json()
+    png_bytes = vlc.vegalite_to_png(vl_spec=chart_json)
+    
+    blob = bucket.blob(filename)
+    blob.upload_from_string(png_bytes, content_type='image/png')
+    gcs_uri = f"gs://{GOOGLE_CLOUD_BUCKET}/{filename}"
+    #print(gcs_uri)
+
+        
+    return f"{gcs_uri}"
+
+#local
 def save_chart(chart, title):
     """
     Saves a chart object to a file and returns the path.
@@ -59,7 +97,7 @@ def save_chart(chart, title):
     with open(file_path, "wb") as f:
         f.write(png_bytes)
         
-    return f"SUCESS"
+    return f"{file_path}"
 
 
 def create_bar_chart(
@@ -88,8 +126,9 @@ def create_bar_chart(
         ).properties(title=title)
         
         chart = configure_korean_font(chart)
-        return save_chart(chart, title)
-        
+        #return save_chart(chart, title) 
+        return save_chart_to_gcs(chart, title)
+
     except Exception as e:
         error_details = traceback.format_exc()
         return f"Error creating bar chart: {error_details}"
@@ -121,7 +160,8 @@ def create_line_chart(
         ).properties(title=title)
         
         chart = configure_korean_font(chart)
-        return save_chart(chart, title)
+        #return save_chart(chart, title)
+        return save_chart_to_gcs(chart, title)
 
     except Exception as e:
         error_details = traceback.format_exc()
@@ -159,7 +199,8 @@ def create_scatter_plot(
         chart = alt.Chart(df).mark_point().encode(**encoding).properties(title=title)
         
         chart = configure_korean_font(chart)
-        return save_chart(chart, title)
+        #return save_chart(chart, title)
+        return save_chart_to_gcs(chart, title)
 
     except Exception as e:
         error_details = traceback.format_exc()
@@ -190,7 +231,8 @@ def create_histogram(
         ).properties(title=title)
         
         chart = configure_korean_font(chart)
-        return save_chart(chart, title)
+        #return save_chart(chart, title)
+        return save_chart_to_gcs(chart, title)
 
     except Exception as e:
         error_details = traceback.format_exc()

@@ -31,18 +31,14 @@ def return_prompt() -> str:
     
     prompt = f"""
         
+        **Answer in Korean if the question is in Korean, and answer in English if the question is in English.**
+
         A default Google Cloud project ID is already set for all your operations.
         If you can't find, ID is {GOOGLE_CLOUD_PROJECT}
         You **must not** ask the user for a project ID
 
         When you are introduce yourself, you should only introduce using your name and description.
         
-        A default Google Cloud project ID is already set for all your operations.
-        If you can't find, ID is {GOOGLE_CLOUD_PROJECT}
-        You **must not** ask the user for a project ID
-
-        When you are introduce yourself, you should only introduce using your name and description.
-
         You are using BigQuery when analyize data.
         When you need to get dataset ids, dataset info, table ids and table info, you call to data_management_agent for getting this info.
         and back you must do remains. 
