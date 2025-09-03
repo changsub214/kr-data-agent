@@ -41,6 +41,7 @@ KR_BQ_AGENT/
 * **메타데이터 및 데이터 관리**: 스키마와 데이터를 이해하여 적절한 메타데이터 생성뿐만 아니라 데이터 관리가 가능합니다.
 * **모델 생성 및 훈련**: BigQueryML에서 지원하는 머신러닝 모델을 생성하고 데이터 훈련이 가능합니다. 
 * **시각화 생성**: 분석된 데이터를 기반으로 아래와 같은 차트를 동적으로 생성합니다.
+    * Google Storage 또는 Local 저장 방식 두가지 옵션이 있으며 tools.py 내 return 설정으로 변경 가능합니다.
     * 막대 차트 (Bar Chart)
     * 선 차트 (Line Chart)
     * 산점도 (Scatter Plot)
@@ -63,7 +64,7 @@ KR_BQ_AGENT/
 6.  **Git**: git이 설치되어 있어야 합니다.
     * <a href="https://git-scm.com/" target="_blank">설치링크</a>
     * <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">가이드라인</a>
-7.  **IAM**: 연결된 계정이 최소한 BigQuery Editor, Vertex AI User 권한 이상을 가져야 합니다.
+7.  **IAM**: 연결된 계정이 최소한 BigQuery Editor, Vertex AI User, Storage Object User 권한 이상을 가져야 합니다.
 8.  **[Optional]System Fonts**: 에이전트가 실행되는 환경에 **나눔고딕 폰트**가 설치되어 있어야 합니다.
     * Ubuntu/Debian: `sudo apt-get update && sudo apt-get install -y fonts-nanum`
     
