@@ -117,7 +117,7 @@ KR_BQ_AGENT/
 ```bash
 adk web
 ```
-시작되면 http://127.0.0.1:8000 주소로 접속하여 웹 UI에서 에이전트와 상호작용할 수 있습니다. 생성된 차트 이미지는 kr_bq_agent/sub_agents/visualization_agent/img/ 디렉터리에 저장됩니다.
+시작되면 http://127.0.0.1:8000 주소로 접속하여 웹 UI에서 에이전트와 상호작용할 수 있습니다. 생성된 차트 이미지는 GoogleCloud Storage Bucket(단, 로컬 저장인 경우kr_bq_agent/sub_agents/visualization_agent/img/ 디렉터리)에 저장됩니다.
 만일, CLI 환경에서 진행할 경우 다음과 같이 진행합니다.
 ```bash
 adk run kr_bq_agent
